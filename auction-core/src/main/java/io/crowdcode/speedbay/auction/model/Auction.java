@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class Auction extends AbstractEntity<Auction, Long> {
+public class Auction extends AbstractEntity {
 
     private String owner;
 
@@ -17,7 +17,11 @@ public class Auction extends AbstractEntity<Auction, Long> {
 
     private LocalDateTime expireDate;
 
-    private Product product;
+    private BigDecimal minAmount;
+
+    private String title;
+
+    private String description;
 
     private List<Bid> bids = new ArrayList<>();
 
@@ -29,6 +33,22 @@ public class Auction extends AbstractEntity<Auction, Long> {
                         new Bid()
                                 .withEmail("none")
                                 .withAmount(BigDecimal.valueOf(Long.MIN_VALUE)));
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getOwner() {
@@ -55,20 +75,20 @@ public class Auction extends AbstractEntity<Auction, Long> {
         this.expireDate = expireDate;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public List<Bid> getBids() {
         return bids;
     }
 
     public void setBids(List<Bid> bids) {
         this.bids = bids;
+    }
+
+    public BigDecimal getMinAmount() {
+        return minAmount;
+    }
+
+    public void setMinAmount(BigDecimal minAmount) {
+        this.minAmount = minAmount;
     }
 
     public Auction withOwner(final String owner) {
@@ -86,15 +106,24 @@ public class Auction extends AbstractEntity<Auction, Long> {
         return this;
     }
 
-    public Auction withProduct(final Product product) {
-        this.product = product;
-        return this;
-    }
-
     public Auction withBids(final List<Bid> bids) {
         this.bids = bids;
         return this;
     }
 
+    public Auction withTitle(final String title) {
+        this.title = title;
+        return this;
+    }
+
+    public Auction withDescription(final String description) {
+        this.description = description;
+        return this;
+    }
+
+    public Auction withMinAmount(final BigDecimal minAmount) {
+        this.minAmount = minAmount;
+        return this;
+    }
 
 }

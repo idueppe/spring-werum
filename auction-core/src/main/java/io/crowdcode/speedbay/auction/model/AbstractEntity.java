@@ -2,30 +2,28 @@ package io.crowdcode.speedbay.auction.model;
 
 import io.crowdcode.speedbay.common.Identifiable;
 
-import java.io.Serializable;
-
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class AbstractEntity<T extends AbstractEntity, ID extends Serializable> implements Identifiable<ID> {
+public class AbstractEntity implements Identifiable<Long> {
 
-    private ID id;
+    private Long id;
 
     @Override
-    public ID getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(ID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
 
     @SuppressWarnings("unchecked")
-    public T withId(final ID id) {
+    public AbstractEntity withId(final Long id) {
         this.id = id;
-        return (T) this;
+        return this;
     }
 
     @Override
@@ -33,7 +31,7 @@ public class AbstractEntity<T extends AbstractEntity, ID extends Serializable> i
         if (this == o) return true;
         if (!(o instanceof AbstractEntity)) return false;
 
-        AbstractEntity<?, ?> that = (AbstractEntity<?, ?>) o;
+        AbstractEntity that = (AbstractEntity) o;
 
         return getId() != null ? getId().equals(that.getId()) : that.getId() == null;
 

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class Bid extends AbstractEntity<Bid, Long> {
+public class Bid extends AbstractEntity {
 
     private String email;
     private BigDecimal amount;

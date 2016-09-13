@@ -2,7 +2,6 @@ package io.crowdcode.speedbay.auction.fixture;
 
 import io.crowdcode.speedbay.auction.model.Auction;
 import io.crowdcode.speedbay.auction.model.Bid;
-import io.crowdcode.speedbay.auction.model.ProductDetail;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,10 +15,9 @@ public class AuctionFixture {
 
     public static Auction createTestAuction(String title, int amount) {
         return buildAuction()
-                .withProduct(
-                        new ProductDetail().withDescription("description")
-                                .withMinAmount(BigDecimal.ONE)
-                                .withTitle(title))
+                .withDescription("description")
+                .withMinAmount(BigDecimal.ONE)
+                .withTitle(title)
                 .withBids(Arrays.asList(
                         new Bid()
                                 .withAmount(BigDecimal.valueOf(amount))
@@ -28,7 +26,9 @@ public class AuctionFixture {
 
     public static Auction buildDefaultAuction() {
         return buildAuction()
-                .withProduct(buildProductDetail())
+                .withTitle("MacBook Pro")
+                .withMinAmount(BigDecimal.ONE)
+                .withDescription("MacBook Pro 15\" Retina")
                 .withBids(Arrays.asList(
                         buildLowBid(),
                         buildHighBid())
@@ -54,10 +54,4 @@ public class AuctionFixture {
                 .withEmail("unit@test.org");
     }
 
-    public static ProductDetail buildProductDetail() {
-        return new ProductDetail()
-                .withTitle("MacBook Pro")
-                .withMinAmount(BigDecimal.ONE)
-                .withDescription("MacBook Pro 15\" Retina");
-    }
 }
