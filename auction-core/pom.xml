@@ -2,17 +2,14 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>speedbay-parent</artifactId>
+        <groupId>io.crowdcode.speedbay</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../speedbay-parent</relativePath>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.crowdcode.speedbay</groupId>
-    <artifactId>speedbay</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>speedbay-parent</module>
-        <module>speedbay-commons</module>
-        <module>auction-core</module>
-    </modules>
+    <artifactId>auction-core</artifactId>
 
 </project>
