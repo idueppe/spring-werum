@@ -1,6 +1,8 @@
 package io.crowdcode.speedbay.auction.model;
 
 
+import io.crowdcode.speedbay.common.time.TimeMachine;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -34,6 +36,17 @@ public class Auction extends AbstractEntity {
                                 .withEmail("none")
                                 .withAmount(BigDecimal.valueOf(Long.MIN_VALUE)));
     }
+
+    public boolean isExpired() {
+        return expireDate.isBefore(TimeMachine.now());
+    }
+
+    public boolean isRunning() {
+        return (beginDate.isBefore(TimeMachine.now())
+                || beginDate.isEqual(TimeMachine.now()))
+                && expireDate.isAfter(TimeMachine.now());
+    }
+
 
     public String getTitle() {
         return title;
