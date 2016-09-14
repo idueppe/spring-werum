@@ -12,7 +12,7 @@
         <property name="store" ref="store"/>
     </bean>
 
-    <bean id="store" class="io.crowdcode.speedbay.common.inmemory.InMemoryStore">
+    <bean id="store" class="io.crowdcode.speedbay.common.inmemory.InMemoryStore" init-method="init">
 
     </bean>
 

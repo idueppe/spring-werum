@@ -24,7 +24,22 @@ public class InMemoryStore<T extends Identifiable<Long>> {
 
     private Long sequence = 0l;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
     public InMemoryStore() {
+        store = new HashMap<>();
+    }
+
+    public InMemoryStore(String name) {
+        this.name = name;
         store = new HashMap<>();
     }
 
