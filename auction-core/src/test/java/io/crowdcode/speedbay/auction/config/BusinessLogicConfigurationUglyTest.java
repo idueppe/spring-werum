@@ -22,16 +22,15 @@ import static org.hamcrest.core.Is.is;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class BusinessLogicConfigurationTest {
+public class BusinessLogicConfigurationUglyTest {
 
-    public static final Logger log = LoggerFactory.getLogger(BusinessLogicConfiguration.class);
-
+    public static final Logger log = LoggerFactory.getLogger(BusinessLogicConfigurationUglyTest.class);
     private AnnotationConfigApplicationContext context;
 
 
     @Before
     public void setUp() throws Exception {
-        context = new AnnotationConfigApplicationContext(BusinessLogicConfiguration.class);
+        context = new AnnotationConfigApplicationContext(BusinessLogicConfigurationUgly.class);
     }
 
     @After

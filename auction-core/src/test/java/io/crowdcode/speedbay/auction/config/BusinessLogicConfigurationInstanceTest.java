@@ -5,6 +5,7 @@ import io.crowdcode.speedbay.auction.model.Auction;
 import io.crowdcode.speedbay.auction.service.AuctionService;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,16 +23,16 @@ import static org.hamcrest.core.Is.is;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class BusinessLogicConfigurationTest {
+public class BusinessLogicConfigurationInstanceTest {
 
-    public static final Logger log = LoggerFactory.getLogger(BusinessLogicConfiguration.class);
-
+    public static final Logger log = LoggerFactory.getLogger(BusinessLogicConfigurationInstanceTest.class);
     private AnnotationConfigApplicationContext context;
 
 
     @Before
     public void setUp() throws Exception {
-        context = new AnnotationConfigApplicationContext(BusinessLogicConfiguration.class);
+        context = new AnnotationConfigApplicationContext(BusinessLogicConfigurationInstance.class);
+
     }
 
     @After
@@ -45,9 +46,9 @@ public class BusinessLogicConfigurationTest {
     }
 
     @Test
+    @Ignore
     public void testApplicationContextWithIntegration() throws Exception {
         AuctionService service = context.getBean("auctionService", AuctionService.class);
-
         Auction auction = AuctionFixture.buildDefaultAuction();
 
         Long auctionId = service.placeAuction(auction.getTitle(), auction.getDescription(), auction.getMinAmount());
