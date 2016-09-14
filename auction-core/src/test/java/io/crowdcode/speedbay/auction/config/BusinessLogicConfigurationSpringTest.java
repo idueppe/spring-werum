@@ -6,6 +6,8 @@ import io.crowdcode.speedbay.auction.service.AuctionService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -26,6 +28,8 @@ public class BusinessLogicConfigurationSpringTest {
     private AuctionService auctionService;
 
     @Test
+    @Repeat(100)
+    @DirtiesContext
     public void testApplicationContextWithIntegration() throws Exception {
         Auction auction = AuctionFixture.buildDefaultAuction();
         Long auctionId = auctionService.placeAuction(

@@ -42,9 +42,12 @@ public class Auction extends AbstractEntity {
     }
 
     public boolean isRunning() {
-        return (beginDate.isBefore(TimeMachine.now())
-                || beginDate.isEqual(TimeMachine.now()))
-                && expireDate.isAfter(TimeMachine.now());
+        LocalDateTime now = TimeMachine.now();
+        return (!now.isBefore(beginDate)
+                && expireDate.isAfter(now));
+//        return (beginDate.isBefore(now)
+//                || beginDate.isEqual(now))
+//                && expireDate.isAfter(now);
     }
 
 
