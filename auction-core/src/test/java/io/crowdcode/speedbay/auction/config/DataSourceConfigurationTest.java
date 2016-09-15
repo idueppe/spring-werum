@@ -3,6 +3,7 @@ package io.crowdcode.speedbay.auction.config;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.IfProfileValue;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,6 +28,9 @@ public class DataSourceConfigurationTest {
 
     @Test
     public void testForExistingDatasource() throws Exception {
+
+        this.getClass().getResource("/x.sql");
+        new ClassPathResource("scripts/x.sql");
         assertNotNull(dataSource);
     }
 
