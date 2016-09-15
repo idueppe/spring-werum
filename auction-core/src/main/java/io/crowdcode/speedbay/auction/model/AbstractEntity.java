@@ -2,11 +2,18 @@ package io.crowdcode.speedbay.auction.model;
 
 import io.crowdcode.speedbay.common.Identifiable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class AbstractEntity implements Identifiable<Long> {
+@MappedSuperclass
+public abstract class AbstractEntity implements Identifiable<Long> {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Override

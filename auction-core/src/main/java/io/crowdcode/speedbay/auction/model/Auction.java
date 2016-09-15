@@ -3,6 +3,11 @@ package io.crowdcode.speedbay.auction.model;
 
 import io.crowdcode.speedbay.common.time.TimeMachine;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,6 +16,10 @@ import java.util.List;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
+@Entity
+@NamedQueries(value = @NamedQuery(name="all",
+        query = "SELECT a FROM Auction a JOIN FETCH a.bids ")
+)
 public class Auction extends AbstractEntity {
 
     private String owner;
@@ -25,6 +34,7 @@ public class Auction extends AbstractEntity {
 
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bid> bids = new ArrayList<>();
 
     public Bid getHighestBid() {

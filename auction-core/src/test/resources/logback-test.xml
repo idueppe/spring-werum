@@ -6,11 +6,11 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
-    <logger name="io.crowdcode" level="DEBUG" />
-    <logger name="org.springframework" level="DEBUG" />
+    <logger name="io.crowdcode" level="INFO" />
+    <logger name="org.springframework" level="WARN" />
     <logger name="org.hibernate.SQL" level="DEBUG"/>
-    <logger name="org.hibernate.type.descriptor" level="INFO"/>
-    <logger name="org.hibernate.tool.hbm2ddl" level="INFO"/>
+    <logger name="org.hibernate.type.descriptor" level="DEBUG"/>
+    <logger name="org.hibernate.tool.hbm2ddl" level="DEBUG"/>
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
     </root>
